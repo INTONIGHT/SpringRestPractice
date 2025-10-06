@@ -9,7 +9,9 @@ import org.springframework.http.HttpStatus;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,5 +47,15 @@ public class ProductController {
 		System.out.println(id);
 		return new Product("888","Single product this isnt how you would do this in the real world", new BigDecimal("458.44"));
 		
+	}
+	//updates a product with fields
+	@PatchMapping("/product")
+	public void patchProduct(@RequestBody Product product) {
+		System.out.println("Patch not full implemented: " + product);
+	}
+	
+	@DeleteMapping("/product/{id}")
+	public void deleteProduct(@PathVariable final String id) {
+		System.out.println("Delete not full implemented: " + id);
 	}
 }
